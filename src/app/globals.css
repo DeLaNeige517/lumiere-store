@@ -1,26 +1,384 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   Lumière — 奶油马卡龙 · Glassmorphism 设计系统
+   ============================================================ */
+
+@theme {
+  /* ---------- 奶油 / 瓷白 ---------- */
+  --color-cream-50: #fffcfa;
+  --color-cream-100: #fdf8f3;
+  --color-cream-200: #f6eee5;
+  --color-cream-300: #ece0d3;
+
+  /* ---------- 浅粉 ---------- */
+  --color-blush-50: #fff6f9;
+  --color-blush-100: #fce8ef;
+  --color-blush-200: #f8d5e1;
+  --color-blush-300: #f1bccd;
+  --color-blush-400: #e8a2ba;
+  --color-blush-600: #c96f8f;
+
+  /* ---------- 淡紫 ---------- */
+  --color-lilac-50: #f8f5fe;
+  --color-lilac-100: #f0eafc;
+  --color-lilac-200: #e1d8f7;
+  --color-lilac-300: #cabcf0;
+  --color-lilac-400: #b3a0e6;
+  --color-lilac-600: #7f68c4;
+
+  /* ---------- 雾霾蓝 ---------- */
+  --color-mist-50: #f4f9fd;
+  --color-mist-100: #e6f1f9;
+  --color-mist-200: #d0e3f3;
+  --color-mist-300: #a9c9e6;
+  --color-mist-400: #83aad2;
+  --color-mist-600: #4f7ba6;
+
+  /* ---------- 香槟金 ---------- */
+  --color-champagne-50: #fdfaf2;
+  --color-champagne-100: #f9f0dc;
+  --color-champagne-200: #f0e0bd;
+  --color-champagne-300: #e0c48f;
+  --color-champagne-500: #b9945b;
+  --color-champagne-700: #8a6c3c;
+
+  /* ---------- 墨色文字 ---------- */
+  --color-ink-900: #24212c;
+  --color-ink-800: #322e3c;
+  --color-ink-700: #4b4757;
+  --color-ink-500: #706c7d;
+  --color-ink-400: #938f9e;
+  --color-ink-300: #b7b3bf;
+
+  /* ---------- 字体 ---------- */
+  --font-sans: var(--font-jakarta), "PingFang SC", "HarmonyOS Sans SC",
+    "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-serif: var(--font-instrument), "Songti SC", "Noto Serif CJK SC", serif;
+
+  /* ---------- 圆角 ---------- */
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.375rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.25rem;
+  --radius-3xl: 3rem;
+
+  /* ---------- 阴影 ---------- */
+  --shadow-glass: 0 1px 2px rgba(255, 255, 255, 0.6) inset,
+    0 18px 46px -22px rgba(96, 78, 118, 0.32),
+    0 4px 14px -8px rgba(96, 78, 118, 0.16);
+  --shadow-glass-lg: 0 1px 2px rgba(255, 255, 255, 0.7) inset,
+    0 34px 80px -30px rgba(96, 78, 118, 0.4),
+    0 10px 26px -14px rgba(96, 78, 118, 0.2);
+  --shadow-float: 0 30px 70px -28px rgba(96, 78, 118, 0.45);
+  --shadow-soft: 0 12px 34px -18px rgba(96, 78, 118, 0.35);
+
+  /* ---------- 缓动 ---------- */
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- 动画 ---------- */
+  --animate-aurora-a: aurora-a 26s var(--ease-soft) infinite;
+  --animate-aurora-b: aurora-b 32s var(--ease-soft) infinite;
+  --animate-aurora-c: aurora-c 38s var(--ease-soft) infinite;
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-drift: drift 14s ease-in-out infinite;
+  --animate-shimmer: shimmer 3.2s linear infinite;
+  --animate-pulse-ring: pulse-ring 3.4s var(--ease-soft) infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---------- 关键帧 ---------- */
+@keyframes aurora-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.12);
+  }
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(0.95);
+  }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes aurora-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(-7%, 6%, 0) scale(1.15);
+  }
+  70% {
+    transform: translate3d(5%, -6%, 0) scale(0.92);
+  }
+}
+@keyframes aurora-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(4%, 7%, 0) scale(1.1);
+  }
+}
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(18px, -22px, 0);
+  }
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.86);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.28);
+    opacity: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   基础层
+   ============================================================ */
+@layer base {
+  * {
+    border-color: color-mix(in oklab, var(--color-cream-300) 70%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream-50);
+    color: var(--color-ink-800);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" 1, "cv01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-blush-200) 70%, transparent);
+    color: var(--color-ink-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--color-lilac-400) 80%, transparent);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  /* 滚动条 */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream-100);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-lilac-200) 80%, transparent);
+    border-radius: 999px;
+    border: 3px solid var(--color-cream-100);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--color-lilac-300) 85%, transparent);
+  }
+}
+
+/* ============================================================
+   工具类
+   ============================================================ */
+@layer utilities {
+  /* 玻璃拟态基础 */
+  .glass {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.46) 48%,
+      rgba(255, 255, 255, 0.62) 100%
+    );
+    backdrop-filter: blur(22px) saturate(170%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-strong {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 255, 0.66) 100%
+    );
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: var(--shadow-glass-lg);
+  }
+
+  .glass-soft {
+    background: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  /* 文字渐变 */
+  .text-aurora {
+    background: linear-gradient(
+      100deg,
+      #b0739a 0%,
+      #e79cb8 30%,
+      #a795e2 62%,
+      #7aabd8 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-soft-gradient {
+    background: linear-gradient(120deg, var(--color-ink-900), var(--color-ink-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* 渐变边框（伪元素描边） */
+  .gradient-ring {
+    position: relative;
+  }
+  .gradient-ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(232, 162, 186, 0.55),
+      rgba(179, 160, 230, 0.55),
+      rgba(169, 201, 230, 0.55),
+      rgba(255, 255, 255, 0.9)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.85;
+    transition: opacity 0.4s var(--ease-silk);
+  }
+
+  /* 网格 / 噪点质感 */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+
+  /* ---------- 玻璃卡片鼠标高光 ---------- */
+  .glass-card {
+    position: relative;
+    isolation: isolate;
+  }
+  .glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.55s var(--ease-silk);
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(255, 255, 255, 0.78),
+      transparent 62%
+    );
+  }
+  .glass-card:hover::before {
+    opacity: 1;
+  }
+  .glass-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 隐藏滚动条（横向滑动区） */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 文本截断 */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ============================================================
+   减少动态效果
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

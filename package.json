@@ -1,14 +1,19 @@
 {
-  "name": "lumiere",
+  "name": "lumiere-store",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images:generate": "bash scripts/generate-images.sh && bash scripts/generate-images-2.sh",
+    "images:optimize": "node scripts/optimize-images.mjs",
+    "fonts:fetch": "node scripts/fetch-fonts.mjs"
   },
   "dependencies": {
+    "lucide-react": "^1.65.0",
+    "motion": "^14.8.0",
     "next": "16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"
@@ -22,5 +27,6 @@
     "eslint-config-next": "16.4.3",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "Lumière 露弥尔 — 奶油马卡龙风格科技生活方式电商首页（Next.js + React + TypeScript + Tailwind v4 + Motion + lucide-react）"
 }
