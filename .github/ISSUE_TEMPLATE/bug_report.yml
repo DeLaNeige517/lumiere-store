@@ -1,0 +1,37 @@
+name: Bug 报告
+description: 报告页面或交互上的异常
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述
+      placeholder: 描述出现的异常
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开 http://localhost:3000/
+        2. 滚动到「人气单品」
+        3. 点击……
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 环境
+      placeholder: 浏览器 / 版本 / 屏幕宽度 / 系统
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
