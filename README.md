@@ -21,6 +21,8 @@
 
 ## 📸 预览
 
+> 以下截图均为**原生高分辨率**：桌面端 2880 × 1800（2× 视网膜），移动端 1170 × 2532（3× 视网膜），JPEG q92 + 4:4:4 无色度采样，合计约 2.5MB。点击图片可查看原始尺寸。
+
 <div align="center">
   <img src="docs/images/hero.jpg" alt="Lumière 首页 Hero" width="100%">
 </div>

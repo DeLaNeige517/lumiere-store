@@ -48,6 +48,27 @@ npm run images:optimize     # 用 sharp 压缩
 
 图片为 AI 生成的演示素材，仅用于本项目展示用途。仓库中的「商品」不对应任何真实品牌或真实商品，价格、参数、评价均为虚构。
 
+### 1.6 文档配图
+
+`docs/images/` 下为项目文档与 README 使用的页面截图：
+
+| 文件 | 尺寸 | 说明 |
+| --- | --- | --- |
+| `hero.jpg` | 2880 × 1800 | Hero 首屏 |
+| `collections.jpg` | 2880 × 1800 | 精选系列 |
+| `products.jpg` | 2880 × 1800 | 人气单品 |
+| `promo.jpg` | 2880 × 1800 | 促销 Banner |
+| `journal.jpg` | 2880 × 1800 | 灵感生活 |
+| `reviews.jpg` | 2880 × 1800 | 用户评价 |
+| `cart.jpg` | 2880 × 1800 | 购物车抽屉 |
+| `mobile-hero.jpg` | 1170 × 2532 | 移动端首屏 |
+| `mobile-products.jpg` | 1170 × 2532 | 移动端商品列表 |
+| `mobile-menu.jpg` | 1170 × 2532 | 移动端菜单 |
+
+**采集方式**：Playwright + Chrome，桌面视口 `1440 × 900 @ DSF 2`，移动视口 `390 × 844 @ DSF 3`，即**原生像素不做缩放**。
+
+**压缩参数**：JPEG（mozjpeg）`quality: 92` + `chromaSubsampling: "4:4:4"` + progressive。4:4:4 是关键——页面大量使用浅粉 / 淡紫渐变，2:2:0 色度抽样会在渐变边缘产生明显色块。原始 PNG 合计 15.1MB，压缩后 2.55MB。
+
 ---
 
 ## 2. 字体
