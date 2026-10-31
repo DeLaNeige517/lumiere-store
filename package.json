@@ -9,7 +9,8 @@
     "lint": "eslint",
     "images:generate": "bash scripts/generate-images.sh && bash scripts/generate-images-2.sh",
     "images:optimize": "node scripts/optimize-images.mjs",
-    "fonts:fetch": "node scripts/fetch-fonts.mjs"
+    "fonts:fetch": "node scripts/fetch-fonts.mjs",
+    "sync:gitee": "bash scripts/sync-gitee.sh"
   },
   "dependencies": {
     "lucide-react": "^1.65.0",

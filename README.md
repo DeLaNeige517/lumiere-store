@@ -156,6 +156,7 @@ npm start
 | `npm run images:generate` | 重新生成全部商品 / 场景图（需 `mmx` CLI 已登录） |
 | `npm run images:optimize` | 压缩优化图片（2.53MB → 0.68MB） |
 | `npm run fonts:fetch` | 重新抓取本地字体子集 |
+| `npm run sync:gitee` | 创建并推送到 Gitee 镜像仓库（需 `GITEE_TOKEN`） |
 
 **环境要求**：Node.js ≥ 20（开发使用 Node 24）。依赖版本已在 `package-lock.json` 中锁定。
 

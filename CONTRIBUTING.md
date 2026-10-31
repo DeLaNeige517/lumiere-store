@@ -40,6 +40,26 @@ npm run build
 - [ ] `prefers-reduced-motion: reduce` 下内容完整可见
 - [ ] 未提交任何凭据、密钥或 `.env` 文件
 
+## 多平台同步
+
+项目同时维护 GitHub 与 Gitee 两个远程仓库。推送命令：
+
+```bash
+git push origin main                       # GitHub
+npm run sync:gitee                        # Gitee（自动创建仓库 + 设置描述 + 推送）
+```
+
+Gitee 同步脚本需要私人令牌（`projects` 权限），令牌来源二选一：
+
+```bash
+export GITEE_TOKEN=xxxxxxxx                # 方式一：环境变量
+echo xxxxxxxx > ~/.gitee_token && chmod 600 ~/.gitee_token   # 方式二：本地文件
+```
+
+> 令牌只写入环境变量或 `~/.gitee_token`（权限 600），**不要**写进脚本、仓库或提交记录。
+
+---
+
 ## 问题反馈
 
 提交 Issue 时请附上：复现步骤、浏览器与分辨率、期望行为与实际行为、相关截图。
