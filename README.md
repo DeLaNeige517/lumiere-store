@@ -15,6 +15,8 @@
 
 [在线预览](#-预览) · [快速开始](#-快速开始) · [功能清单](#-功能清单) · [设计系统](#-设计系统) · [文档](#-文档)
 
+**仓库地址**：[GitHub](https://github.com/DeLaNeige517/lumiere-store) · [Gitee](https://gitee.com/hugo-zhe/lumiere-store)
+
 </div>
 
 ---

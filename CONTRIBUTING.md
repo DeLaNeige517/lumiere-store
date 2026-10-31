@@ -42,11 +42,17 @@ npm run build
 
 ## 多平台同步
 
-项目同时维护 GitHub 与 Gitee 两个远程仓库。推送命令：
+项目同时维护 GitHub 与 Gitee 两个远程仓库：
+
+- GitHub：`https://github.com/DeLaNeige517/lumiere-store`
+- Gitee：`https://gitee.com/hugo-zhe/lumiere-store`
+
+推送命令：
 
 ```bash
-git push origin main                       # GitHub
-npm run sync:gitee                        # Gitee（自动创建仓库 + 设置描述 + 推送）
+git push origin main                       # GitHub（origin 为默认上游）
+git push gitee main                        # Gitee
+npm run sync:gitee                        # Gitee：建仓 + 设置描述 + 推送（需令牌）
 ```
 
 Gitee 同步脚本需要私人令牌（`projects` 权限），令牌来源二选一：
