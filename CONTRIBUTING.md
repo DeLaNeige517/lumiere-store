@@ -55,6 +55,10 @@ git push gitee main                        # Gitee
 npm run sync:gitee                        # Gitee：建仓 + 设置描述 + 推送（需令牌）
 ```
 
+> **关于 Gitee 的 SSH 地址**：部分网络环境下 `gitee.com` 的 22 端口不可达，
+> 本仓库的 `gitee` remote 默认使用 `ssh://git@ssh.gitee.com:443/...`（443 通道），
+> 认证身份为 `hugo-zhe`；`npm run sync:gitee` 会自动探测可用通道并回退。
+
 Gitee 同步脚本需要私人令牌（`projects` 权限），令牌来源二选一：
 
 ```bash

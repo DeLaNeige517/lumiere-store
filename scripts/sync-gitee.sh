@@ -85,11 +85,24 @@ curl -fsS -X PATCH -G "https://gitee.com/api/v5/repos/${OWNER}/${REPO_NAME}" \
 
 # ---------- 添加 remote 并推送 ----------
 REMOTE_NAME="gitee"
+# 优先使用 ssh.gitee.com:443 —— 部分网络环境下 gitee.com 的 22 端口不可达，
+# 443 通道更稳定；不可用时回退到标准 gitee.com SSH。
+GITEE_SSH_URL=""
+for cand in "ssh://git@ssh.gitee.com:443/${OWNER}/${REPO_NAME}.git" \
+            "git@gitee.com:${OWNER}/${REPO_NAME}.git"; do
+  if timeout 20 git ls-remote "$cand" >/dev/null 2>&1; then
+    GITEE_SSH_URL="$cand"
+    break
+  fi
+done
+[ -z "$GITEE_SSH_URL" ] && GITEE_SSH_URL="git@gitee.com:${OWNER}/${REPO_NAME}.git"
+
 if git remote get-url "$REMOTE_NAME" >/dev/null 2>&1; then
-  git remote set-url "$REMOTE_NAME" "git@gitee.com:${OWNER}/${REPO_NAME}.git"
+  git remote set-url "$REMOTE_NAME" "$GITEE_SSH_URL"
 else
-  git remote add "$REMOTE_NAME" "git@gitee.com:${OWNER}/${REPO_NAME}.git"
+  git remote add "$REMOTE_NAME" "$GITEE_SSH_URL"
 fi
+echo "  remote URL: ${GITEE_SSH_URL}"
 
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 echo "→ 推送到 gitee/${BRANCH}"
